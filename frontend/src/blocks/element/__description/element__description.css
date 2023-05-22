@@ -1,0 +1,8 @@
+.element__description {
+    background: #fff;
+    border-radius: 0 0 10px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 30px 22px 21px;
+}
