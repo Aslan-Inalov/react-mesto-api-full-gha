@@ -8,7 +8,7 @@
 
 ## Ссылки на проект
 
-IP-адрес 158.160.53.222
+IP 158.160.53.222
 
 Frontend https://mesto.aslan-inalov.nomoredomains.monster
 
