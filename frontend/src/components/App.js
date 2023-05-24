@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import Header from './Header';
 import Main from './Main';
 import Footer from './Footer';
@@ -5,7 +6,7 @@ import PopupWithForm from './PopupWithForm';
 import ImagePopup from './ImagePopup';
 import { useEffect, useState } from 'react';
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
-import { api } from '../utils/api';
+import Api from '../utils/api';
 import { auth } from '../utils/auth';
 import EditProfilePopup from './EditProfilePopup';
 import EditAvatarPopup from './EditAvatarPopup';
@@ -32,6 +33,14 @@ function App() {
 
   const navigate = useNavigate();
 
+  const api = new Api({
+    url: 'https://api.mesto.aslan-inalov.nomoredomains.monster',
+    headers: {
+      authorization: `Bearer ${localStorage.getItem('jwt')}`,
+      'Content-Type': 'application/json'
+    }
+  });
+
   useEffect(() => {
     const jwt = localStorage.getItem("jwt");
     if (jwt) {
@@ -56,8 +65,8 @@ function App() {
       .authorize(values.email, values.password)
       .then((data) => {
         if (data.token) {
-          setLoggedIn(true);
           localStorage.setItem("jwt", data.token);
+          setLoggedIn(true);
           setEmail(values.email);
           navigate("/");
         }
@@ -91,6 +100,7 @@ function App() {
   }
 
   const handleSignOut = () => {
+    setLoggedIn(false);
     setEmail("");
     localStorage.removeItem("jwt");
   };
