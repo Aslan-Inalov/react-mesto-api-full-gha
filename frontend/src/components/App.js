@@ -122,6 +122,8 @@ function App() {
     }
   }, [loggedIn]);
 
+ console.log('user');
+
 
   function handleCardLike(card) {
     const isLiked = card.likes.some(i => i._id === currentUser._id);
