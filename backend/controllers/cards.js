@@ -9,8 +9,8 @@ const createCard = (req, res, next) => {
   const { name, link } = req.body;
 
   Card.create({ name, link, owner: _id })
-    .then((cards) => {
-      res.status(201).send({ cards });
+    .then((newCard) => {
+      res.status(201).send({ newCard });
     })
     .catch((error) => {
       if (error.name === 'ValidationError') {
