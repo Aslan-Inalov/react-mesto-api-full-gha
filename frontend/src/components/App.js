@@ -113,8 +113,8 @@ function App() {
         .catch((err) => {
           console.log(`Ошибка: ${err}`);
         });
-      api.getInitialCards().then(dataCard => {
-        setCards(dataCard);
+      api.getInitialCards().then(cards => {
+        setCards(cards);
       })
         .catch((err) => {
           console.log(`Ошибка: ${err}`);
