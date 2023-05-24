@@ -25,6 +25,7 @@ const createCard = (req, res, next) => {
 
 const getCards = (req, res, next) => {
   Card.find({})
+    .populate(['owner', 'likes'])
     .then((cards) => res.send({ data: cards }))
     .catch(next);
 };
@@ -63,6 +64,7 @@ const likeCard = (req, res, next) => {
     { $addToSet: { likes: owner } },
     { new: true },
   )
+    .populate(['owner', 'likes'])
     .then((card) => {
       if (!card) {
         next(new NotFoundError('Карточка с указанным _id не найдена.'));
@@ -90,6 +92,7 @@ const dislikeCard = (req, res, next) => {
     { $pull: { likes: owner } },
     { new: true },
   )
+    .populate(['owner', 'likes'])
     .then((card) => {
       if (!card) {
         next(new NotFoundError('Карточка с указанным _id не найдена.'));
