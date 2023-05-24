@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import PopupWithForm from "./PopupWithForm";
 import { useFormAndValidation } from "../hooks/useFormAndValidation";
 import { useEffect } from "react";
