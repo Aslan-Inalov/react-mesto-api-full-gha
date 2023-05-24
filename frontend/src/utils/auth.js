@@ -44,5 +44,5 @@ class Api {
 }
 
 export const auth = new Api({
-  url: "https://auth.nomoreparties.co",
+  url: "https://api.mesto.aslan-inalov.nomoredomains.monster",
 });
