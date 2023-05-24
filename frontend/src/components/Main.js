@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
-// import Card from './Card';
+import Card from './Card';
 
 function Main({
     onEditProfile,
@@ -28,14 +28,15 @@ function Main({
             </section>
             <section className="elements">
                 <ul className="element">
-                    {cards.map(card => (console.log('card')))}
-                    {/* < Card
-                        key={card._id}
-                        card={card}
-                        onCardClick={onCardClick}
-                        onCardLike={onCardLike}
-                        onCardDelete={onCardDelete} />
-                    ))} */}
+                    {cards.map(card =>
+                        < Card
+                            key={card._id}
+                            card={card}
+                            onCardClick={onCardClick}
+                            onCardLike={onCardLike}
+                            onCardDelete={onCardDelete} />
+                    )}
+
                 </ul>
             </section>
         </main>

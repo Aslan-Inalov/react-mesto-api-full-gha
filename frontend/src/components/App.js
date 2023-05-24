@@ -113,8 +113,8 @@ function App() {
         .catch((err) => {
           console.log(`Ошибка: ${err}`);
         });
-      api.getInitialCards().then(cards => {
-        setCards(cards);
+      api.getInitialCards().then(dataCard => {
+        setCards(dataCard);
       })
         .catch((err) => {
           console.log(`Ошибка: ${err}`);
@@ -122,18 +122,6 @@ function App() {
     }
   }, [loggedIn]);
 
-  api.getInitialCards()
-  .then((cards) => {
-    console.log(cards); // выводим данные в консоль браузера
-    if (Array.isArray(cards)) {
-      setCards(cards);
-    } else {
-      console.log(`Данные не являются массивом: ${cards}`);
-    }
-  })
-  .catch((err) => {
-    console.log(`Ошибка при получении данных: ${err}`);
-  });
 
   function handleCardLike(card) {
     const isLiked = card.likes.some(i => i._id === currentUser._id);
