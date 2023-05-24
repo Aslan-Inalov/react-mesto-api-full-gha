@@ -8,8 +8,8 @@
 
 ## Ссылки на проект
 
-IP-адрес x.x.x.x
+IP-адрес 158.160.53.222
 
-Frontend https://...
+Frontend https://mesto.aslan-inalov.nomoredomains.monster
 
-Backend https://...
+Backend https://api.mesto.aslan-inalov.nomoredomains.monster
