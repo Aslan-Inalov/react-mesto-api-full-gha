@@ -1,10 +1,8 @@
-/* eslint-disable import/no-extraneous-dependencies */
-/* eslint-disable consistent-return */
 require('dotenv').config();
-const jwt = require('jsonwebtoken');
+import { verify } from 'jsonwebtoken';
 
 const { NODE_ENV, JWT_SECRET } = process.env;
-const UnauthorizedError = require('../errors/UnauthorizedError');
+import UnauthorizedError from '../errors/UnauthorizedError';
 
 const auth = (req, res, next) => {
   const { authorization } = req.headers;
@@ -14,7 +12,7 @@ const auth = (req, res, next) => {
   const token = authorization.replace('Bearer ', '');
   let payload;
   try {
-    payload = jwt.verify(
+    payload = verify(
       token,
       NODE_ENV === 'production' ? JWT_SECRET : 'JWT_SECRET',
     );
@@ -24,4 +22,4 @@ const auth = (req, res, next) => {
   req.user = payload;
   next();
 };
-module.exports = auth;
+export default auth;
