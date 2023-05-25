@@ -58,8 +58,8 @@ export default class Api {
         });
     }
 
-    changeLikeCardStatus(cardId, isLiked) {
-        return this._request(`${this._url}/cards/${cardId}/likes`, {
+    changeLikeCardStatus(id, isLiked) {
+        return this._request(`${this._url}/cards/${id}/likes`, {
             method: `${!isLiked ? "DELETE" : "PUT"}`,
             headers: this._headers,
         });

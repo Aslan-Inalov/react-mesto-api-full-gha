@@ -69,7 +69,7 @@ const likeCard = (req, res, next) => {
       if (!card) {
         next(new NotFoundError('Карточка с указанным _id не найдена.'));
       } else {
-        res.send({ data: card });
+        res.send(card);
       }
     })
     .catch((error) => {
@@ -97,7 +97,7 @@ const dislikeCard = (req, res, next) => {
       if (!card) {
         next(new NotFoundError('Карточка с указанным _id не найдена.'));
       } else {
-        res.send({ data: card });
+        res.send(card);
       }
     })
     .catch((error) => {
